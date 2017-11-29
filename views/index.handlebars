@@ -1,0 +1,58 @@
+<!-- HEAD -->
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+        	<div class="text-center">
+        		<img src="http://pngimg.com/uploads/burger_sandwich/burger_sandwich_PNG4160.png" alt="burger-img" style='width:100px; height: auto;'>
+        	</div>
+            <h1 class="display-3 text-center"> Burgers</h1>
+            <br>
+            <br>
+            <form id="new_burger" class="input-group" action="/api/burgers" method="post">
+                <input name="name" class="form-control form-control-lg" type="text" placeholder="Order a Burger...">
+                <span class="input-group-btn">
+        			<button class="btn btn-secondary" type="submit" form="new_burger">Add</button>
+      			</span>
+            </form>
+        </div>
+    </div>
+
+<!-- TABLES -->
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+					<div class="card-header text-center">
+					    Ready to be Devoured
+					</div>
+					<ul id="undevoured-table" class="list-group list-group-flush">
+                        {{#each burgers}}
+                            {{#unless devoured}}
+                                <li class="list-group-item">
+                                    <p class='float-left' style='margin: 0.5em 0 0.5em 0;'>{{name}}</p>
+                                    <form action="/api/burgers/{{id}}?_method=PUT" method="POST">
+                                        <button type="submit" class="btn btn-warning float-right" >Eat</button>
+                                    </form>
+                                </li>
+                            {{/unless}}
+                        {{/each}}
+					</ul>
+					</div>
+			</div>
+			<div class="col">
+				<div class="card">
+                    <div class="card-header text-center">
+                       	Devoured
+                    </div>
+                    <ul id="devoured-table" class="list-group list-group-flush">
+                        {{#each burgers}}
+                            {{#if devoured}}
+                                <li class="list-group-item">
+                                    <p class='float-left' style='margin: 0.5em 0 0.5em 0;'>{{name}}</p>
+                                </li>
+                            {{/if}}
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
