@@ -9,6 +9,7 @@ const mysql = require('mysql')
 // })
 
 let connection = mysql.createPool({
+	connectionLimit: 20,
 	host:'us-cdbr-iron-east-05.cleardb.net',
 	user: 'bb55da9d68bcc7',
 	password: '82a9ed47c6b1974',
