@@ -4,7 +4,7 @@ var router = express.Router();
 
 router.get('/', (req, res) => {
 	burger.all((data) => {
-		var burger_data = {burgers: data};
+		let burger_data = {burgers: data};
 		res.render('index', burger_data)
 	})
 });
