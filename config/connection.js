@@ -8,7 +8,7 @@ const mysql = require('mysql')
 // 	database: 'burgers_db'
 // })
 
-let connection = mysql.createPool({
+var pool = mysql.createPool({
 	connectionLimit: 20,
 	host:'us-cdbr-iron-east-05.cleardb.net',
 	user: 'bb55da9d68bcc7',
@@ -16,9 +16,8 @@ let connection = mysql.createPool({
 	database: 'heroku_c95269d4e05feb3'
 })
 
-connection.connect(err => {
+pool.getConnection( (err, connection) => {
 	if (err) console.log(err);
 	console.log("Connected as ID " + connection.threadId);
+	module.exports = connection;
 })
-
-module.exports = connection;
