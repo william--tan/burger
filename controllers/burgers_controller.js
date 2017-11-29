@@ -18,9 +18,7 @@ router.post('/api/burgers', (req, res) => {
 router.put("/api/burgers/:id", (req, res) => {
 	console.log(req.params.id);
 	burger.devour(req.params.id, (result) => {
-		if (result.changedRows == 0)
-			return res.status(404).end();
-		else res.redirect('/');
+		res.redirect('/');
 	})
 })
 
