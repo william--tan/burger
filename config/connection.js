@@ -8,12 +8,14 @@ const mysql = require('mysql')
 // 	database: 'burgers_db'
 // })
 
-var connection = mysql.createConnection({
+var config = {
 	host:'us-cdbr-iron-east-05.cleardb.net',
 	user: 'bb55da9d68bcc7',
 	password: '82a9ed47c6b1974',
 	database: 'heroku_c95269d4e05feb3'
-})
+};
+
+var connection = mysql.createConnection(config)
 
 connection.connect(err => {
 	if (err) console.log(err);
@@ -32,7 +34,7 @@ function handleDisconnect(client) {
     // NOTE: This assignment is to a variable from an outer scope; this is extremely important
     // If this said `client =` it wouldn't do what you want. The assignment here is implicitly changed
     // to `global.mysqlClient =` in node.
-    mysqlClient = mysql.createConnection(client.config);
+    mysqlClient = mysql.createConnection(config);
     handleDisconnect(mysqlClient);
     mysqlClient.connect();
   });
