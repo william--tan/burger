@@ -40,7 +40,7 @@ var pool = mysql.createPool(config)
 //   });
 // };
 
-module.exports = connection;
+// module.exports = connection;
 
 module.exports = {
     query: function(){
