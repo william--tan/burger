@@ -16,8 +16,15 @@ router.post('/api/burgers', (req, res) => {
 })
 
 router.put("/api/burgers/:id", (req, res) => {
-	console.log(req.params.id);
+	//console.log(req.params.id);
 	burger.devour(req.params.id, (result) => {
+		res.redirect('/');
+	})
+})
+
+router.delete("/api/burgers/:id", (req, res) => {
+	//console.log(req.params.id);
+	burger.deleteOne(req.params.id, (result) => {
 		res.redirect('/');
 	})
 })

@@ -48,6 +48,9 @@
                             {{#if devoured}}
                                 <li class="list-group-item">
                                     <p class='float-left' style='margin: 0.5em 0 0.5em 0;'>{{name}}</p>
+                                    <form action="/api/burgers/{{id}}?_method=DELETE" method="POST">
+                                        <button type="submit" class="btn btn-danger float-right" >Remove</button>
+                                    </form>
                                 </li>
                             {{/if}}
                         {{/each}}

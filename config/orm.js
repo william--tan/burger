@@ -19,6 +19,12 @@ var orm = {
 			if (err) console.log(err);
 			res(result);
 		})
+	},
+	deleteOne: (id, res) => {
+		connection.query('DELETE FROM burgers WHERE id = '+id, (err, result) => {
+			if (err) console.log(err);
+			res(result);
+		})
 	}
 }
 
