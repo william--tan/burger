@@ -24,7 +24,7 @@ router.put("/api/burgers/:id", (req, res) => {
 
 router.delete("/api/burgers/:id", (req, res) => {
 	//console.log(req.params.id);
-	burger.deleteOne(req.params.id, (result) => {
+	burger.delete(req.params.id, (result) => {
 		res.redirect('/');
 	})
 })

@@ -9,6 +9,9 @@ var burger = {
 	},
 	devour: (id, res) => {
 		orm.updateOne(id, (result) => {res(result)})
+	},
+	delete: (id, res) => {
+		orm.deleteOne(id, (result) => {res(result)})
 	}
 }
 
